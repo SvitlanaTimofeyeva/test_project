@@ -1,0 +1,164 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="app">
+<head>
+    <meta charset="utf-8" />
+
+
+    <script src="lib/progressbar.js"></script>
+    <script src="lib/angular.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="js/main.js"></script>
+    <script src="js/resize.js"></script>
+    <link href="css/style.css" rel="stylesheet" />
+
+    <title>Form Demo 1</title>
+</head>
+<body>
+
+    <div class="main" ng-app>
+        <div class="wrapper" ng-controller="mainCtrl">
+   
+                <div class="progress-bar">
+                    <div class="meter">
+                        <span style="width: 0%"></span>
+                    </div>
+                    <span class="status"><span id="num">{{q_id + 1}}</span>/{{q_all}}</span>
+                </div>
+                <div class="form-container" ng-switch on="q_id">
+                    <form name="myForm" novalidate>
+
+                        <div class="input-group-container">
+                            <div class="input-container slidein" id="0" ng-switch-when="0">
+                                <div class="error-msg"></div>
+                                <div class="label-wrap">
+                                    <label>
+                                        Employer Identification Number (EIN) <span class="info" ng-mouseout="hide_info()" ng-mouseover="show_info('  Enter this 9-digit number using the following format XX-XXXXXXX. EIN is an Employer Identification Number assigned by the IRS to identify a particular organization.')"></span>
+                                    </label>
+                                </div>
+                                <input ng-model="formData.company_id" autofocus class="form-input" placeholder="EIN" type="text" required />
+                                <div class="prompt-container">
+                                    <div class="prompt"></div>
+                                    <div class="prompt-style"></div>
+                                </div>
+                                <span class="req">*</span>
+                            </div>
+                            <div class="input-container slidein " id="1" ng-switch-when="1">
+                                <div class="error-msg"></div>
+                                <div class="label-wrap">
+                                    <label>
+                                        Full legal name of the organization
+                                    </label>
+                                </div>
+                                <input autofocus ng-model="formData.company_name" class="form-input" placeholder="Organization Name" type="text" required />
+                                <span class="req">*</span>
+                            </div>
+                            <div class="input-container slidein" id="2" ng-switch-when="2">
+                                <div class="error-msg"></div>
+                                <div class="label-wrap">
+                                    <label>
+                                        Your organization is also known as (AKA)
+                                    </label>
+                                </div>
+                                <input autofocus ng-model="formData.company_alias" class="form-input" placeholder="Organization Alias" type="text" />
+                            </div>
+                            <div class="input-container slidein" id="3" ng-switch-when="3">
+                                <div class="error-msg"></div>
+                                <div class="label-wrap">
+                                    <label>
+                                        Please describe your organization’s work <span class="info" ng-mouseout="hide_info()" ng-mouseover="show_info('You should use 50 words or less to describe the work.')"></span>
+                                    </label>
+                                </div>
+                                <textarea autofocus class="form-textarea" ng-model="formData.description" cols="5" rows="5" placeholder="Organization Work"></textarea>
+                                <div class="prompt-container">
+                                    <div class="prompt"></div>
+                                    <div class="prompt-style"></div>
+                                </div>
+                            </div>
+                            <div class="input-container slidein" id="4" ng-switch-when="4">
+                                <div class="error-msg"></div>
+                                <div class="label-wrap">
+                                    <label>
+                                        Please insert your organization logo here
+                                    </label>
+                                    <label class="custom-file-upload" ng-click="upload()">
+                                        Upload
+
+                                        <input type="file" ng-model="formData.logo" id="file" />
+                                    </label>
+                                </div>
+
+                            </div>
+                            <div class="input-container slidein" id="5" ng-switch-when="5">
+                                <div class="error-msg"></div>
+                                <div class="label-wrap">
+                                    <label>
+                                        Can an individual or an organization contact you regarding your organization?
+                                    </label>
+                                </div>
+                                <div>
+                                    <div class="switch">
+                                        <input ng-model="formData.contact" id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round-flat" type="checkbox">
+                                        <label for="cmn-toggle-1"></label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="input-container slidein" id="6" ng-switch-when="6">
+                                <div class="data-control">
+                                    <div>
+                                        <label class="label-sm"> Employer Identification Number (EIN)</label>
+                                        <input ng-model="formData.company_id" autofocus class="form-input-sm" placeholder="EIN" type="text" required />
+                                    </div>
+                                    <div>
+                                        <label class="label-sm"> Full legal name of the organization</label>
+                                        <input autofocus ng-model="formData.company_name" class="form-input-sm" placeholder="Organization Name" type="text" required />
+                                    </div>
+                                    <div>
+                                        <label class="label-sm"> Your organization is also known as (AKA)</label>
+                                        <input autofocus ng-model="formData.company_alias" class="form-input-sm" placeholder="Organization Alias" type="text" />
+                                    </div>
+                                    <div>
+                                        <label class="label-sm"> Please describe your organization’s work</label>
+                                        <textarea autofocus class="form-textarea sm" ng-model="formData.description" cols="5" rows="5" placeholder="Organization Work"></textarea>
+                                    </div>
+                                    <div>
+                                        <label class="label-sm"> Logo</label>
+                                        <label class="custom-file-upload regress" ng-click="upload()">
+                                            Upload
+
+                                            <input type="file" ng-model="formData.logo" id="file" />
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <label class="label-sm"> Can an individual or an organization contact you regarding your organization?</label>
+                                        <div class="switch">
+                                            <input ng-model="formData.contact" id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round-flat" type="checkbox">
+                                            <label for="cmn-toggle-1"></label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="input-container slidein" id="7" ng-switch-when="7">
+                     
+                                <div class="thank-you-screen">
+                                    <h1>Thank you for your time!</h1>
+                                </div>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+                <div class="btn-container">
+                    <button class="btn" id="btn" ng-click="switchQuestion()">
+                        Continue
+                    </button>
+
+                </div>
+           
+        </div>
+    </div> 
+
+ 
+</body>
+</html>

@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="app">
+<head>
+    <meta charset="utf-8" />
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="lib/angular.js"></script>
+    <script src="js/main.js"></script>
+    <title>Form Demo 5</title>
+</head>
+<body id="body" ng-controller="mainCtrl">
+    <div class="progress-bar-top">
+        <div class="meter-top">
+            <span style="width: 0%"></span>
+        </div>
+        <span class="stats"><span id="num">{{cat}}</span>/{{all}}</span>
+    </div>
+
+    <div class="content">
+        <div class="title">organization information</div>
+        <div class="col-md-12" id="form-wrap" ng-controller="inputCtrl">
+            <form>
+                <div class="inp-container" ng-repeat="index in indices track by $index">
+                    <pretty-input num="index" input="{{inputs}}"></pretty-input>
+                </div>
+            </form>
+        </div>
+
+        <button id="continue-btn" ng-click="change_cat()">Continue</button>
+
+    </div>
+
+    <div class="thanx">
+        Thank you for your time!
+    </div>
+
+</body>
+</html>

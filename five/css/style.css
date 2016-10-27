@@ -1,0 +1,358 @@
+﻿@font-face {
+    font-family: 'Lato';
+    src: url(../fonts/Lato-Regular.ttf);
+}
+
+#body {
+    margin: 0;
+    padding: 0;
+    background-color: rgba(202, 221, 255, 0.29);
+    font-family: 'Lato', sans-serif;
+}
+
+.pretty-dropdown {
+    display: none; 
+}
+
+/* progress bar */
+
+.progress-bar-top {
+    top: 0;
+    position: fixed;
+    width: 100%;
+    z-index: 1000000;
+}
+
+.meter-top {
+    height: 50px;
+    position: relative;
+    background: #1f467d;
+    padding: 10px;
+}
+
+    .meter-top > span {
+        display: block;
+        height: 100%;
+        -webkit-border-radius: 8px;
+        -moz-border-radius: 8px;
+        background-color: rgb(30, 222, 140);
+        background-image: -moz-linear-gradient( center bottom, rgb(43,194,83) 37%, rgb(84,240,84) 69% );
+        position: relative;
+        overflow: hidden;
+    }
+
+        .meter-top > span:after, .animate > span > span {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background-image: -webkit-gradient(linear, 0 0, 100% 100%, color-stop(.25, rgba(255, 255, 255, .2)), color-stop(.25, transparent), color-stop(.5, transparent), color-stop(.5, rgba(255, 255, 255, .2)), color-stop(.75, rgba(255, 255, 255, .2)), color-stop(.75, transparent), to(transparent) );
+            background-image: -moz-linear-gradient( -45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent );
+            z-index: 1;
+            background-size: 50px 50px;
+            -webkit-animation: move 2s linear infinite;
+            -webkit-border-radius: 8px;
+            -webkit-border-radius: 8px;
+            overflow: hidden;
+        }
+
+.animate > span:after {
+    display: none;
+}
+
+.stats {
+    color: #fff;
+    font-size: 20px;
+    position: fixed;
+    right: 30px;
+    top: 10px;
+    font-weight: 800;
+    font-family: 'Lato', sans-serif;
+}
+
+.content {
+    margin-top: 100px;
+    margin-bottom: 80px;
+}
+
+.input-container {
+}
+
+.title {
+    text-transform: uppercase;
+    color: #1f467d;
+    text-align: center;
+    font-size: 45px;
+}
+
+.form-input {
+    height: 100px;
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    font-size: 40px;
+    color: #162a63;
+    padding-top: 40px;
+    position: relative;
+    z-index: 100;
+    padding: 30px;
+    display: inline-block;
+    background-color: #c3cbe1;
+}
+
+.drop {
+    height: 150px;
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    font-size: 40px;
+    color: #162a63;
+    padding-top: 40px;
+    position: relative;
+    z-index: 100;
+    padding: 30px;
+    display: inline-block;
+    background-color: #c3cbe1;
+}
+
+.wrap {
+    margin: 40px 20px 40px 20px; 
+    background: #c3cbe1;
+}
+
+.form-input:focus {
+    outline: none;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: #8a97bb;
+}
+
+::-moz-placeholder { /* Firefox 19+ */
+    color: #8a97bb;
+}
+
+:-ms-input-placeholder { /* IE 10+ */
+    color: #8a97bb;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+    color: #8a97bb;
+}
+
+#form-wrap {
+    padding: 10px 23%; 
+    margin-bottom: 50px;
+}
+
+.continue-btn-container {
+    margin: 0 auto;
+}
+
+#continue-btn {
+    font-weight: 600;
+    color: #fff;
+    border-radius: 25px;
+    height: 50px;
+    width: 100px;
+    background-color: #1f467d;
+    transition: all 0.2s ease-in-out;
+    border: 3px solid #1f467d;
+    margin: 0 auto;
+    display: block;
+    font-size: 17px;
+}
+
+.big-input-meter {
+    width: 0%;
+    height: 100px;
+    background-color: #28d68c;
+    position: relative;
+    z-index: 9999999999;
+    float: right;
+    margin-top: -100px;
+
+} 
+
+/*dropdown*/ 
+
+.cell {
+    height: 100px; 
+    transition: all 0.3s linear;  
+    color:  #8a97bb; 
+    padding-left: 30px;
+    padding-top: 30px;
+    cursor: pointer; 
+}  
+
+label {
+    display: inline-block;
+    max-width: 100%;
+    /* margin-bottom: 5px; */
+    font-weight: 700;
+    color: #162a63;
+    position: absolute;
+    margin-top: -35px;
+    margin-left: 21px;
+    font-size: 20px;
+}
+
+.meter-span {
+    background-color: #162a63;
+    position: absolute;
+    width: 0%;
+    height: 10px; 
+}
+
+.thanx {
+    text-transform: uppercase;
+    color: #1f467d;
+    text-align: center;
+    font-size: 45px;
+    display: none;
+} 
+
+input {
+    transition: all 0.3s linear;
+}
+
+#continue-btn:focus {
+    outline: none;
+}
+
+#continue-btn:hover {
+    transition: 0.2s background-color 0.2s color ease-in-out;
+    color: #1f467d;
+    background-color: rgba(134, 143, 183, 0.42);
+}
+
+
+.title {
+    text-transform: uppercase;
+    color: #1f467d;
+}
+
+.form-input {
+    font-size: 23px;
+} 
+
+.cell {
+    font-size: 23px;
+}
+
+/*animation on input*/ 
+
+.right {
+
+    width: 0px;
+    height: 100px;
+    position: relative;
+    margin-top: -140px;
+    float: right;
+    margin-right: 20px;
+    background-color: #28d68c;
+    z-index: 100000; 
+    cursor: pointer; 
+
+
+} 
+
+.wrong {
+    width: 0px;
+    height: 100px;
+    position: relative;
+    margin-top: -140px;
+    float: right;
+    margin-right: 20px;
+    background-color: #d85c5c; 
+    z-index: 90000; 
+    cursor: pointer; 
+} 
+
+.icon {
+    width: 50px;
+    margin-top: 25px; 
+    margin-left:25px; 
+    display: none; 
+ 
+} 
+
+.input-meter {
+    height: 10px;
+    position: relative;
+    margin-top: -40px;
+    margin-left: 20px;
+    margin-right: 20px; 
+    background-color: #d9dfee; 
+} 
+
+.down {
+    transition: all 0.3s linear; 
+}
+
+.rotate {
+    transform: rotate(-90deg); 
+    transition: transform 0.3s linear;  
+
+}
+
+#colorchange {
+    width: 0px;
+    height: 100px;
+    position: relative;
+    margin-top: -140px;
+    float: right;
+    margin-right: 20px;
+    z-index: 100000; 
+    cursor: pointer; 
+    transition: all 0.5s linear; 
+    background-color: #28d68c; 
+}
+
+@media screen and (max-width: 1400px) {
+
+    #form-wrap {
+        padding: 10px 23%;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+
+    #form-wrap {
+        padding: 10px 18%;
+    }
+}
+
+
+@media screen and (max-width: 1000px) {
+
+    #form-wrap {
+        padding: 10px 10%;
+    }
+
+    .form-input {
+        font-size: 23px;
+    } 
+
+    .cell {
+        font-size: 23px;
+    }
+}
+
+
+@media screen and (max-width: 700px) {
+
+    #form-wrap {
+        padding: 10px 1%;
+    }
+
+    .form-input {
+        font-size: 20px;
+    } 
+
+    .cell {
+        font-size: 20px;
+    }
+}
